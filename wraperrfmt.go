@@ -72,7 +72,7 @@ func isInvalidErrorf(pass *analysis.Pass, inst ssa.Instruction) bool {
 func isCallErrorf(call *ssa.Call) bool {
 
 	f := call.Common().StaticCallee()
-	if f == nil {
+	if f == nil || f.Pkg == nil {
 		return false
 	}
 
